@@ -102,40 +102,6 @@ def tmm_reflect(polarisation, n, d, theta, wl, a):
 
         T = T*M*P
 
-        """
-        ## Calculate electric field profile in microcavity structure
-        # Field just inside right edge of layer
-
-        if a == 1:
-            E_field = M*P*E_field
-
-            # left hand side of the right layer at interface
-            for i in range (0, x+1):
-                zr = zr + d[i]
-
-            #right hand side of layer
-            if x == 0:
-                zl = 0
-            else:
-                for i in range (0, x):
-                    zl = zl + d[i]
-
-            print 'zl = ', zl
-            print 'zr = ', zr
-            #Field density at intermediate positions in layer
-            #Check which of desired z values falls inside current layer
-
-            for i in range (0, np.size(z)-1):
-                if z[i] >= zl and z[i] <= zr:
-                    if i == np.size(z)-1:
-                        delta_z = 0
-                    elif i < np.size(z)-1:
-                        delta_z = zl - z[i]
-                    E = E_field.item(0) * np.exp(-1*np.sqrt(-1+0j)*kzr*delta_z) + E_field.item(1) * np.exp(1*np.sqrt(-1+0j)*kzr*delta_z) #Total Electric Field
-                    E_out = np.append(E_out,E)
-
-                    #Ezc = Efield(1)*exp(i*kza*delta_z) + Efield(2)*exp(-i*kza*delta_z); %Total Electric Field
-        """
     theta_i = theta_f
 
     r = T[1,0]/T[0,0]
